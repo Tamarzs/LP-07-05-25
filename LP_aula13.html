@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+body {
+         font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+    }
+    code, pre, src, source {
+        font-family: "Source Code Pro", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+    }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgfa9df85">1. Palíndromo:</a>
+<ul>
+<li><a href="#orgf70698e">1.1. Exercício</a></li>
+</ul>
+</li>
+<li><a href="#org8951dab">2. Ordenação de vetores</a>
+<ul>
+<li><a href="#orga5e8de4">2.1. Exercício</a></li>
+<li><a href="#org237f12f">2.2. Ordenação por bolha</a></li>
+<li><a href="#org2a156d7">2.3. Exercício</a></li>
+</ul>
+</li>
+<li><a href="#org9b76541">3. For e switch</a></li>
+<li><a href="#orgb5c61fd">4. Envio</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa9df85" class="outline-2">
+<h2 id="orgfa9df85"><span class="section-number-2">1.</span> Palíndromo:</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Palavra ou frase que permanece a mesma lida de trás para frente. Exemplo:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">char animal[10] = "arara";
+</pre>
+</div>
+
+<svg width="400" height="150" xmlns="http://www.w3.org/2000/svg">
+    <!-- Estilo dos quadrados e texto -->
+    <style>
+        .memory-box {
+            fill: #f0f0f0;
+            stroke: #333;
+            stroke-width: 2;
+        }
+        .memory-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #000;
+        }
+        .index-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #555;
+        }
+    </style>
+
+    <!-- Título -->
+    <text x="220" y="30" font-size="20" text-anchor="middle">char animal[6] = "arara";</text>
+
+    <!-- Quadrados representando a memória -->
+    <rect x="100" y="50" width="50" height="50" class="memory-box" />
+    <rect x="150" y="50" width="50" height="50" class="memory-box" />
+    <rect x="200" y="50" width="50" height="50" class="memory-box" />
+    <rect x="250" y="50" width="50" height="50" class="memory-box" />
+    <rect x="300" y="50" width="50" height="50" class="memory-box" />
+    <rect x="350" y="50" width="50" height="50" class="memory-box" />
+
+    <!-- Caracteres dentro dos quadrados -->
+    <text x="125" y="75" class="memory-text">'a'</text>
+    <text x="175" y="75" class="memory-text">'r'</text>
+    <text x="225" y="75" class="memory-text">'a'</text>
+    <text x="275" y="75" class="memory-text">'r'</text>
+    <text x="325" y="75" class="memory-text">'a'</text>
+    <text x="375" y="75" class="memory-text">'\0'</text>
+
+    <!-- Índices do vetor -->
+    <text x="125" y="110" class="index-text">0</text>
+    <text x="175" y="110" class="index-text">1</text>
+    <text x="225" y="110" class="index-text">2</text>
+    <text x="275" y="110" class="index-text">3</text>
+    <text x="325" y="110" class="index-text">4</text>
+    <text x="375" y="110" class="index-text">5</text>
+</svg>
+
+<div class="org-src-container">
+<pre class="src src-c">animal[0] == animal[4];
+animal[1] == animal[3];
+</pre>
+</div>
+
+<p>
+Outro exemplo com palavra de tamanho par: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">char palavra[5] = "esse";
+</pre>
+</div>
+
+<svg width="400" height="220" xmlns="http://www.w3.org/2000/svg">
+    <!-- Estilo -->
+    <style>
+        .memory-box {
+            fill: #f0f8ff;
+            stroke: #333;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .active-box {
+            fill: #e6f7ff;
+            stroke: #0066cc;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .memory-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #000;
+        }
+        .arrow {
+            stroke: #ff4500;
+            stroke-width: 3;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .arrow-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            fill: #ff4500;
+            font-weight: bold;
+        }
+        .index-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+            fill: #555;
+        }
+    </style>
+
+    <!-- Definição da ponta da seta -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff4500"/>
+        </marker>
+    </defs>
+    
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 80)">
+  <path d="M25,50 L25,100 L205,100 L205,50" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrow)"/>  
+  <text x="100" y="130" font-family="Arial" font-size="30" fill="#333">==</text>
+
+  <path d="M85,0 L85,-40 L150,-40 L150,0" stroke="#333" stroke-width="3" fill="none" marker-end="url(#arrow)"/>  
+  <text x="100" y="-10" font-family="Arial" font-size="30" fill="#333">==</text>
+  
+        <!-- Quadrados com destaque para caracteres ativos -->
+        <rect x="0" y="0" width="50" height="50" class="active-box"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box"/>
+        <rect x="120" y="0" width="50" height="50" class="active-box"/>
+        <rect x="180" y="0" width="50" height="50" class="active-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Caracteres -->
+        <text x="25" y="25" class="memory-text">'e'</text>
+        <text x="85" y="25" class="memory-text">'s'</text>
+        <text x="145" y="25" class="memory-text">'s'</text>
+        <text x="205" y="25" class="memory-text">'e'</text>
+        <text x="265" y="25" class="memory-text">'\0'</text>
+
+    </g>
+</svg>
+
+<p>
+É palíndromo pois:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">palavra[0] == palavra[3];
+palavra[1] == palavra[2];
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-orgf70698e" class="outline-3">
+<h3 id="orgf70698e"><span class="section-number-3">1.1.</span> Exercício</h3>
+<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li>Crie um programa em C que recebe uma palavra com até 10 letras e verifique se a palavra é um palíndromo. Exemplo:</li>
+</ol>
+
+<pre class="example" id="org78c9393">
+Digite a palavra: osso
+Resultado: é um palíndromo!
+</pre>
+
+<pre class="example" id="orgb50c257">
+Digite a palavra: ame
+Resultado: NÃO é!
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8951dab" class="outline-2">
+<h2 id="org8951dab"><span class="section-number-2">2.</span> Ordenação de vetores</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Podemos colocar os valores de um vetor em ordem crescente:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">int vetor[5] = {9, 7, 3, 6, 8};
+</pre>
+</div>
+
+<p>
+Ficando assim:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">vetor[5] = {3, 6, 7, 8, 9};
+</pre>
+</div>
+
+<p>
+Para começar, podemos verificar qual elemento é o menor entre dois deles assim:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">int maior;
+
+int vetor[5] = {9, 7, 3, 6, 8};
+
+if( vetor[0] &gt; vetor[1] ) {
+  maior = vetor[0];
+  vetor[0] = vetor[1];
+  vetor[1] = maior;
+} 
+</pre>
+</div>
+
+<svg width="500" height="250" xmlns="http://www.w3.org/2000/svg">
+    <!-- Estilo -->
+    <style>
+        .memory-box {
+            fill: #f0f8ff;
+            stroke: #333;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .active-box {
+            fill: #ffebee;
+            stroke: #d32f2f;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .active-box-v {
+            fill: #c8e6c9;  /* Pastel green */
+            stroke: #2e7d32; /* Darker green border */
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .memory-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #000;
+        }
+        .arrow {
+            stroke: #ff5722;
+            stroke-width: 3;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .index-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+            fill: #555;
+        }
+        .swap-text {
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Definição da ponta da seta -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff5722"/>
+        </marker>
+    </defs>
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 50)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="active-box"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">9</text>
+        <text x="85" y="25" class="memory-text">7</text>
+        <text x="145" y="25" class="memory-text">3</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="50" y="-10" class="swap-text">></text>
+    </g>
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 150)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">9</text>
+        <text x="145" y="25" class="memory-text">3</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="50" y="-10" class="swap-text"><</text>
+    </g>    
+</svg>
+
+<p>
+Se repetirmos o processo até o tamanho do vetor, teremos o maior de todos na última posição:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">int maior;
+
+int vetor[5] = {9, 7, 3, 6, 8};
+
+for(int i = 0; i &lt; 4; i++) {
+  if( vetor[i] &gt; vetor[i+1] ) {
+    maior = vetor[i];
+    vetor[i] = vetor[i+1];
+    vetor[i+1] = maior;
+  }
+} 
+</pre>
+</div>
+
+<svg width="500" height="820" xmlns="http://www.w3.org/2000/svg">
+    <!-- Estilo -->
+    <style>
+        .memory-box {
+            fill: #f0f8ff;
+            stroke: #333;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .active-box {
+            fill: #ffebee;
+            stroke: #d32f2f;
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .active-box-v {
+            fill: #c8e6c9;  /* Pastel green */
+            stroke: #2e7d32; /* Darker green border */
+            stroke-width: 2;
+            rx: 5px;
+        }
+        .memory-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            text-anchor: middle;
+            dominant-baseline: middle;
+            fill: #000;
+        }
+        .arrow {
+            stroke: #ff5722;
+            stroke-width: 3;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        .index-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+            fill: #555;
+        }
+        .swap-text {
+            font-family: Arial, sans-serif;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- Definição da ponta da seta -->
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="#ff5722"/>
+        </marker>
+    </defs>
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 50)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="active-box"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">9</text>
+        <text x="85" y="25" class="memory-text">7</text>
+        <text x="145" y="25" class="memory-text">3</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="50" y="-10" class="swap-text">></text>
+    </g>
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 150)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">9</text>
+        <text x="145" y="25" class="memory-text">3</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="50" y="-10" class="swap-text"><</text>
+    </g>
+    
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 250)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box"/>
+        <rect x="120" y="0" width="50" height="50" class="active-box"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">9</text>
+        <text x="145" y="25" class="memory-text">3</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="110" y="-10" class="swap-text">></text>
+    </g>    
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 350)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="120" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="180" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">3</text>
+        <text x="145" y="25" class="memory-text">9</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="110" y="-10" class="swap-text"><</text>
+    </g>    
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 450)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="120" y="0" width="50" height="50" class="active-box"/>
+        <rect x="180" y="0" width="50" height="50" class="active-box"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">3</text>
+        <text x="145" y="25" class="memory-text">9</text>
+        <text x="205" y="25" class="memory-text">6</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="170" y="-10" class="swap-text">></text>
+    </g>    
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 550)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="120" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="180" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="240" y="0" width="50" height="50" class="memory-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">3</text>
+        <text x="145" y="25" class="memory-text">6</text>
+        <text x="205" y="25" class="memory-text">9</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="170" y="-10" class="swap-text"><</text>
+    </g>
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 650)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="active-box"/>
+        <rect x="240" y="0" width="50" height="50" class="active-box"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">3</text>
+        <text x="145" y="25" class="memory-text">6</text>
+        <text x="205" y="25" class="memory-text">9</text>
+        <text x="265" y="25" class="memory-text">8</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="230" y="-10" class="swap-text">></text>
+    </g>    
+
+    <!-- Vetor de memória -->
+    <g transform="translate(100, 750)">
+        <!-- Quadrados -->
+        <rect x="0" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="60" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="120" y="0" width="50" height="50" class="memory-box"/>
+        <rect x="180" y="0" width="50" height="50" class="active-box-v"/>
+        <rect x="240" y="0" width="50" height="50" class="active-box-v"/>
+
+        <!-- Valores -->
+        <text x="25" y="25" class="memory-text">7</text>
+        <text x="85" y="25" class="memory-text">3</text>
+        <text x="145" y="25" class="memory-text">6</text>
+        <text x="205" y="25" class="memory-text">8</text>
+        <text x="265" y="25" class="memory-text">9</text>
+
+        <!-- Índices -->
+        <text x="25" y="60" class="index-text">[0]</text>
+        <text x="85" y="60" class="index-text">[1]</text>
+        <text x="145" y="60" class="index-text">[2]</text>
+        <text x="205" y="60" class="index-text">[3]</text>
+        <text x="265" y="60" class="index-text">[4]</text>
+
+        <!-- Seta de comparação -->
+        <text x="230" y="-10" class="swap-text"><</text>
+    </g>
+</svg>
+</div>
+
+<div id="outline-container-orga5e8de4" class="outline-3">
+<h3 id="orga5e8de4"><span class="section-number-3">2.1.</span> Exercício</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li value="2">Ajuste o programa do ordenamento para colocar em ordem crescente todos os elementos do vetor.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org237f12f" class="outline-3">
+<h3 id="org237f12f"><span class="section-number-3">2.2.</span> Ordenação por bolha</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+O algoritmo que garante que um elemento está na posição correta cada vez que passa por todos os elementos do vetor é conhecido como Bubble Sort (Ordenação por Bolha), a passada deve ser repetida até que todos os elementos estejam na ordem.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">int maior;
+
+int vetor[5] = {9, 7, 3, 6, 8};
+
+for(int elemento = 0; elemento &lt; 5; elemento++) {
+  for(int i = 0; i &lt; 4; i++) {
+    if( vetor[i] &gt; vetor[i+1] ) {
+      maior = vetor[i];
+      vetor[i] = vetor[i+1];
+      vetor[i+1] = maior;
+    }
+  }
+ }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a156d7" class="outline-3">
+<h3 id="org2a156d7"><span class="section-number-3">2.3.</span> Exercício</h3>
+<div class="outline-text-3" id="text-2-3">
+<ol class="org-ol">
+<li value="3">Crie um programa em C que recebe duas strings e verifique se são anagramas. Use <b>strlen</b> e ordenação de vetores.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9b76541" class="outline-2">
+<h2 id="org9b76541"><span class="section-number-2">3.</span> For e switch</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Para obter um número do usuário podemos usar <code>scanf()</code>, se o número for inteiro usamos <code>scanf(" %d")</code> e se for real usamos <code>scanf(" %f")</code>.
+</p>
+
+<p>
+Um loop <code>for</code> executa comandos uma determinada quantidade de vezes:
+</p>
+
+<pre class="example">
+for(int i = 0; i &lt; 3; i++) // executa 3 vezes: i: 0, 1, 2
+
+for(int i = 1; i &lt; 3; i++) // executa 2 vezes: i: 1, 2
+
+for(int i = 0; i &lt;= 3; i++) // executa 4 vezes: i: 0, 1, 2, 3
+
+for(int i = 1; i &lt;= 3; i++) // executa 3 vezes: i: 1, 2, 3
+</pre>
+
+<p>
+Se um loop <code>for</code> estiver dentro de outro loop <code>for</code> o comando mais interno será executado a quantidade do loop externo vezes a quantidade do loop interno:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">for(int i = 1; i &lt;= 3; i++) {
+  for(int j = 1; j &lt;= 2; j++ {  /* executa 6 vezes:
+    i: 1 j: 1, 2,
+    i: 2 j: 1, 2,
+    i: 3 j: 1, 2, */
+</pre>
+</div>
+
+<ol class="org-ol">
+<li value="4">Crie um programa em C que recebe um número e desenha um triângulo de asteriscos usando o número como base e altura.</li>
+</ol>
+
+<pre class="example" id="orgd8957bb">
+Digite um numero: 3
+*
+**
+***
+</pre>
+
+<p>
+Podemos criar funções separadas para executar tarefas semelhantes:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">int mais_sete(int x) {
+  return x + 7;
+}
+
+int menos_sete(int x) {
+  return x - y;
+}
+</pre>
+</div>
+
+<ol class="org-ol">
+<li value="5">Ajuste o programa anterior para receber após a impressão uma letra: A para desenhar o triângulo à esquerda e D para desenhar o triângulo à direita. F encerra o programa.</li>
+</ol>
+
+<pre class="example" id="orgfeba33c">
+Digite um numero: 3
+*
+**
+***
+D
+  *
+ **
+***
+A
+*
+**
+***
+F
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb5c61fd" class="outline-2">
+<h2 id="orgb5c61fd"><span class="section-number-2">4.</span> Envio</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="https://forms.gle/HjS1ndpwPiSXvVaL6">https://forms.gle/HjS1ndpwPiSXvVaL6</a>
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
